@@ -1,5 +1,4 @@
 <?php
-use Joomla\CMS\Factory;
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Model\ListModel;
 
@@ -18,8 +17,8 @@ class EasyChefModelRecipes extends ListModel
         $db = $this->getDbo();
         $query = $db->getQuery(true)
             ->select('r.*, c.title AS category_title')
-            ->from($db->quoteName('#__joomrecipe_recipes', 'r'))
-            ->leftJoin($db->quoteName('#__joomrecipe_categories', 'c') . ' ON r.catid = c.id')
+            ->from($db->quoteName('#__easy_chef_recipes', 'r'))
+            ->leftJoin($db->quoteName('#__easy_chef_categories', 'c') . ' ON r.catid = c.id')
             ->where($db->quoteName('r.published') . ' = 1');
 
         $catid = $this->getState('filter.catid');

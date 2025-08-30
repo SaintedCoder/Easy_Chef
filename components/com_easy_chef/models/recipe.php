@@ -3,9 +3,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\FormController;
 
-use Joomla\CMS\MVC\Model\FormModel;
-
-class EasyChefModelRecipe extends FormModel
+class EasyChefControllerRecipe extends FormController
 {
     public function save($key = null, $urlVar = null)
     {

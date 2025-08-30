@@ -14,7 +14,7 @@ class EasyChefControllerSearch extends BaseController
         // Search recipes
         $q = $db->getQuery(true)
             ->select('id, title, "recipe" AS type')
-            ->from($db->quoteName('#__joomrecipe_recipes'))
+            ->from($db->quoteName('#__easy_chef_recipes'))
             ->where('title LIKE ' . $db->quote('%' . $query . '%') . ' AND published=1');
         $results = array_merge($results, $db->setQuery($q)->loadAssocList());
 

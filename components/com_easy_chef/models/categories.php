@@ -1,5 +1,4 @@
 <?php
-use Joomla\CMS\Factory;
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Model\ListModel;
 
@@ -10,7 +9,7 @@ class EasyChefModelCategories extends ListModel
         $db = $this->getDbo();
         $query = $db->getQuery(true)
             ->select('*')
-            ->from($db->quoteName('#__joomrecipe_categories'))
+            ->from($db->quoteName('#__easy_chef_categories'))
             ->where($db->quoteName('published') . ' = 1');
         return $query;
     }
