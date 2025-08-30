@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_recipes` (
+CREATE TABLE IF NOT EXISTS `#__easychef_recipes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `catid` INT(11) NOT NULL,
   `cuisine_id` INT(11) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_recipes` (
   KEY `idx_serving_type_id` (`serving_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_categories` (
+CREATE TABLE IF NOT EXISTS `#__easychef_categories` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `asset_id` INT(11) NOT NULL,
   `parent_id` INT(11) DEFAULT 0,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_categories` (
   KEY `idx_parent_id` (`parent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_ingredients` (
+CREATE TABLE IF NOT EXISTS `#__easychef_ingredients` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `recipe_id` INT(11) NOT NULL,
   `ingredients_group_id` INT(11) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_ingredients` (
   KEY `idx_ingredients_group_id` (`ingredients_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_ingredientsgroups` (
+CREATE TABLE IF NOT EXISTS `#__easychef_ingredientsgroups` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `recipe_id` INT(11) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
@@ -63,7 +63,15 @@ CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_ingredientsgroups` (
   KEY `idx_recipe_id` (`recipe_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `#__easychefrecipewebsite_cuisines` (
+CREATE TABLE IF NOT EXISTS `#__easychef_cuisines` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `ordering` INT(11) DEFAULT 0,
+  `published` TINYINT(1) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `#__easychef_servingtypes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `ordering` INT(11) DEFAULT 0,
