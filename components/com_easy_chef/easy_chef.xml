@@ -15,15 +15,16 @@
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
-    <files folder="admin">
+    <files folder="../administrator/components/com_easy_chef">
         <filename>easy_chef.php</filename>
         <folder>controllers</folder>
         <folder>models</folder>
         <folder>views</folder>
         <folder>sql</folder>
     </files>
-    <files folder="site">
-        <filename>easy_chef.php</filename>
+    <files folder="../components/com_easy_chef">
+        <filename>easychef.php</filename>
+        <filename>easy_chef.xml</filename>
         <folder>controllers</folder>
         <folder>models</folder>
         <folder>views</folder>

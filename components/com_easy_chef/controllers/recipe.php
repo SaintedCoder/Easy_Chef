@@ -3,7 +3,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\AdminController;
 
-class EasyChefControllerRecipes extends AdminController
+class EasyChefControllerRecipe extends AdminController
 {
     public function approve()
     {

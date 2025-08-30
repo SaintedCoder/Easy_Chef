@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Model\FormModel;
 
@@ -9,7 +10,7 @@ class EasyChefModelRecipeform extends FormModel
         $db = $this->getDbo();
         $query = $db->getQuery(true)
             ->select('id, title')
-            ->from($db->quoteName('#__easy_chef_categories'))
+            ->from($db->quoteName('#__joomrecipe_categories'))
             ->where($db->quoteName('published') . ' = 1');
         return $db->setQuery($query)->loadObjectList();
     }
@@ -19,7 +20,7 @@ class EasyChefModelRecipeform extends FormModel
         $db = $this->getDbo();
         $query = $db->getQuery(true)
             ->select('id, name')
-            ->from($db->quoteName('#__easy_chef_cuisines'))
+            ->from($db->quoteName('#__joomrecipe_cuisines'))
             ->where($db->quoteName('published') . ' = 1');
         return $db->setQuery($query)->loadObjectList();
     }
@@ -29,7 +30,7 @@ class EasyChefModelRecipeform extends FormModel
         $db = $this->getDbo();
         $query = $db->getQuery(true)
             ->select('id, name')
-            ->from($db->quoteName('#__easy_chef_servingtypes'))
+            ->from($db->quoteName('#__joomrecipe_servingtypes'))
             ->where($db->quoteName('published') . ' = 1');
         return $db->setQuery($query)->loadObjectList();
     }

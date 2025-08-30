@@ -1,8 +1,9 @@
 <?php
+use Joomla\CMS\Factory;
 defined('_JEXEC') or die;
 use Joomla\CMS\MVC\View\HtmlView;
 
-class EasyChefViewRecipes extends HtmlView
+class EasyChefViewRecipe extends HtmlView
 {
     protected $items;
 
@@ -14,10 +15,10 @@ class EasyChefViewRecipes extends HtmlView
 
     public function getCategoryTitle($catid)
     {
-        $db = JFactory::getDbo();
+    $db = Factory::getDbo();
         $query = $db->getQuery(true)
             ->select('title')
-            ->from($db->quoteName('#__easy_chef_categories'))
+            ->from($db->quoteName('#__joomrecipe_categories'))
             ->where($db->quoteName('id') . ' = ' . (int)$catid);
         return $db->setQuery($query)->loadResult();
     }
