@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__easychefrecipewebsite_recipes`, `#__easychefrecipewebsite_categories`, `#__easychefrecipewebsite_ingredients`, `#__easychefrecipewebsite_ingredientsgroups`, `#__easychefrecipewebsite_cuisines`;
