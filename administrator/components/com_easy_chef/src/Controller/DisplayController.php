@@ -14,3 +14,10 @@ class DisplayController extends BaseController
         return parent::display($cachable, $urlparams);
     }
 }
+Update these files and push to GitHub. This should fix both the JSON installation error AND the 404 component error!
+
+Aug 30, 09:21 PM
+
+Copy
+Scroll to bottom
+Agent is waiting...
