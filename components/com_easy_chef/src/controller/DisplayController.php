@@ -9,7 +9,7 @@ class DisplayController extends BaseController
 {
     protected $default_view = 'recipes';
     
-    public function display($cachable = false, $urlparams = array())
+    public function display($cachable = false, $urlparams = [])
     {
         return parent::display($cachable, $urlparams);
     }

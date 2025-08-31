@@ -19,7 +19,7 @@ return new class implements ServiceProviderInterface
             ComponentInterface::class,
             function (Container $container) {
                 $component = new \Joomla\CMS\Extension\Component(
-                    $container->get(ComponentDispatcherFactoryInterface::class)
+                    $container->get(\Joomla\CMS\MVC\Factory\MVCFactoryInterface::class)
                 );
                 
                 return $component;
