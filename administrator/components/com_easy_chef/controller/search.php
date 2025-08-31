@@ -1,0 +1,31 @@
+<?php
+defined('_JEXEC') or die;
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Controller\BaseController;
+
+class EasyChefControllerSearch extends BaseController
+{
+    public function ajax()
+    {
+        $query = Factory::getApplication()->input->getString('query');
+        $db = Factory::getDbo();
+        $results = [];
+
+        // Search recipes
+        $q = $db->getQuery(true)
+            ->select('id, title, "recipe" AS type')
+            ->from($db->quoteName('#__easy_chef_recipes'))
+            ->where('title LIKE ' . $db->quote('%' . $query . '%') . ' AND published=1');
+        $results = array_merge($results, $db->setQuery($q)->loadAssocList());
+
+        // Search articles
+        $q = $db->getQuery(true)
+            ->select('id, title, "article" AS type')
+            ->from($db->quoteName('#__content'))
+            ->where('title LIKE ' . $db->quote('%' . $query . '%') . ' AND state=1');
+        $results = array_merge($results, $db->setQuery($q)->loadAssocList());
+
+        echo json_encode($results);
+        Factory::getApplication()->close();
+    }
+}
